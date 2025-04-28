@@ -4,6 +4,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 header {
@@ -11,6 +12,7 @@ header {
     color: white;
     text-align: center;
     padding: 15px 0;
+    transition: background-color 0.3s ease;
 }
 
 header h1 {
@@ -46,6 +48,7 @@ main {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 .task-input-form button:hover {
@@ -68,12 +71,13 @@ main {
     margin-bottom: 10px;
     border-radius: 5px;
     display: flex;
-    align-items: center; /* Bu satırda dikey hizalamayı yaptık */
-    justify-content: space-between; /* Align text and delete button */
+    align-items: center;
+    justify-content: space-between;
+    transition: background-color 0.3s ease;
 }
 
 .task-list li span {
-    flex-grow: 1; /* Bu, görev açıklamasının sola dayalı kalmasını sağlıyor */
+    flex-grow: 1;
 }
 
 /* Completed Task Style */
@@ -115,8 +119,8 @@ main {
 
 /* Checkbox Style */
 input[type="checkbox"] {
-    margin-left: 10px; /* Checkbox ile metin arasında boşluk bırakılacak */
-    order: 2; /* Bu, checkbox'ı sağa yerleştirir */
+    margin-left: 10px;
+    order: 2;
 }
 
 /* Clear Completed Button Style */
@@ -152,6 +156,32 @@ input[type="checkbox"] {
     border: 2px solid #fb8c00;
 }
 
+/* Dark Mode Styles */
+body.dark-mode {
+    background-color: #121212;
+    color: white;
+}
+
+header.dark-mode {
+    background-color: #333;
+}
+
+.task-list li.dark-mode {
+    background-color: #333;
+    border: 1px solid #444;
+}
+
+.task-list li.completed.dark-mode {
+    background-color: #444;
+}
+
+input[type="checkbox"].dark-mode {
+    background-color: #666;
+}
+
+/* Dark Mode Buttons */
+
+
 /* Responsive Design */
 @media (max-width: 768px) {
     header h1 {
@@ -167,7 +197,7 @@ input[type="checkbox"] {
     }
 
     .task-list li {
-        flex-direction: column; /* Daha küçük ekranlarda, görevleri alt alta yerleştirecek */
-        align-items: flex-start; /* Checkbox ile görev açıklamasını üst üste hizalayacak */
+        flex-direction: column;
+        align-items: flex-start;
     }
 }

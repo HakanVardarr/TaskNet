@@ -26,6 +26,8 @@ document.getElementById("clearCompletedButton").addEventListener("click", () => 
     }
 });
 
+document.getElementById("darkModeToggle").addEventListener("click", toggleDarkMode);
+
 function addTask() {
     const taskInput = document.getElementById("taskInput");
     const taskDescription = taskInput.value.trim();
@@ -72,6 +74,11 @@ function addTask() {
         // Add the list item to the task list
         taskList.appendChild(listItem);
 
+        // Ensure dark mode styling for the new task item
+        if (document.body.classList.contains("dark-mode")) {
+            listItem.classList.add("dark-mode");
+        }
+
         // Save task to LocalStorage
         saveTasks();
 
@@ -81,6 +88,7 @@ function addTask() {
         alert("Please enter a task description!");
     }
 }
+
 
 function saveTasks() {
     const taskList = document.getElementById("taskList").getElementsByTagName("li");
@@ -151,3 +159,32 @@ function loadTasks() {
 
 // Load tasks when the page is loaded
 document.addEventListener("DOMContentLoaded", loadTasks);
+
+function toggleDarkMode() {
+    // Toggle dark mode class for body and header
+    document.body.classList.toggle("dark-mode");
+    document.querySelector("header").classList.toggle("dark-mode");
+    
+    // Toggle dark mode class for each task item
+    const taskItems = document.querySelectorAll(".task-list li");
+    taskItems.forEach(item => item.classList.toggle("dark-mode"));
+    
+    // Save dark mode preference to localStorage
+    const isDarkMode = document.body.classList.contains("dark-mode");
+    localStorage.setItem("darkMode", isDarkMode);
+    
+    // Keep the button styles in light mode (no change to button colors)
+   
+}
+
+
+// Check and apply dark mode preference from localStorage when the page loads
+document.addEventListener("DOMContentLoaded", () => {
+    const isDarkMode = localStorage.getItem("darkMode") === "true";
+    if (isDarkMode) {
+        document.body.classList.add("dark-mode");
+        document.querySelector("header").classList.add("dark-mode");
+        const taskItems = document.querySelectorAll(".task-list li");
+        taskItems.forEach(item => item.classList.add("dark-mode"));
+    }
+});
