@@ -1,0 +1,68 @@
+name: Bug Report
+description: Report a bug or an issue you encountered in the project.
+title: "[Bug] "
+labels: [bug]
+body:
+  - type: textarea
+    id: bug-description
+    attributes:
+      label: Bug Description
+      description: Briefly describe the bug or issue you encountered.
+      placeholder: "Example: The app crashes when adding a new task."
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps-to-reproduce
+    attributes:
+      label: Steps to Reproduce
+      description: List the steps needed to reproduce the bug.
+      placeholder: |
+        1. Go to the task input form
+        2. Enter a new task and click "Add Task"
+        3. Observe the crash
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected-behavior
+    attributes:
+      label: Expected Behavior
+      description: Describe what you expected to happen when following the steps.
+      placeholder: "Example: The task should be added to the list without issues."
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual-behavior
+    attributes:
+      label: Actual Behavior
+      description: Describe what actually happens instead of the expected behavior.
+      placeholder: "Example: The app crashes with an error message."
+    validations:
+      required: true
+
+  - type: dropdown
+    id: environment
+    attributes:
+      label: Environment
+      description: Select the environment where you encountered the bug.
+      options:
+        - Browser: Chrome
+        - Browser: Firefox
+        - Browser: Safari
+        - OS: macOS
+        - OS: Windows
+        - OS: Linux
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional-notes
+    attributes:
+      label: Additional Notes
+      description: Add any extra information if necessary.
+      placeholder: "Example: Attach a screenshot if possible."
+    validations:
+      required: false
