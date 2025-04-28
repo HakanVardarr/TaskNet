@@ -5,6 +5,16 @@ document.getElementById("taskInput").addEventListener("keydown", function(event)
     }
 });
 
+document.getElementById("clearCompletedButton").addEventListener("click", () => {
+    const taskList = document.getElementById("taskList").getElementsByTagName("li");
+    for (let i = 0; i < taskList.length; i++) {
+        const listItem = taskList[i];
+        if (listItem.classList.contains("completed")) {
+            document.getElementById("taskList").removeChild(listItem);
+        }
+    }
+});
+
 function addTask() {
     const taskInput = document.getElementById("taskInput");
     const taskDescription = taskInput.value.trim();

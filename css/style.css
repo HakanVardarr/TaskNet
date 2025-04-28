@@ -80,7 +80,7 @@ main {
     background-color: #e0ffe0;
 }
 
-.taks-list li.completed span {
+.task-list li.completed span {
     text-decoration: line-through;
 }
 
