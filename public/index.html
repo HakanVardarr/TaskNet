@@ -11,10 +11,19 @@
         <h1>TaskNet</h1>
     </header>
     <main>
-        <p>This is the main content area where tasks will be listed.</p>
+        <section class="task-input-form">
+            <input type="text" id="taskInput" placeholder="Enter task description">
+            <button id="addTaskButton">Add Task</button>
+        </section>
+        <section class="task-list">
+            <ul id="taskList">
+                <!-- Task items will appear here -->
+            </ul>
+        </section>
     </main>
     <footer>
         <p>&copy; 2025 TaskNet. All rights reserved.</p>
     </footer>
+    <script src="../js/app.js"></script>
 </body>
 </html>
