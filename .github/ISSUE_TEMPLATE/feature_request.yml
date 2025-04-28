@@ -1,0 +1,46 @@
+name: Feature Request
+description: Suggest a new feature or improvement for the project.
+title: "[Feature] "
+labels: [feature]
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: Briefly describe the feature you would like to add.
+      placeholder: Example: Add category filtering for tasks.
+    validations:
+      required: true
+
+  - type: textarea
+    id: tasks
+    attributes:
+      label: Tasks
+      description: List the steps required to implement this feature.
+      placeholder: |
+        - [ ] Create a dropdown menu
+        - [ ] Handle category selection
+        - [ ] Filter tasks by selected category
+    validations:
+      required: true
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      description: How important is this feature?
+      options:
+        - Low
+        - Medium
+        - High
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional-notes
+    attributes:
+      label: Additional Notes
+      description: Add any extra information if necessary.
+      placeholder: Example: Make sure the dropdown is mobile-friendly.
+    validations:
+      required: false
