@@ -1,46 +1,46 @@
-name: Bug Report
-description: Report a bug to help us improve.
-title: "[Bug] "
-labels: [bug]
+name: Feature Request
+description: Suggest a new feature or improvement for the project.
+title: "[Feature] "
+labels: [feature]
 body:
   - type: textarea
-    id: bug-description
+    id: description
     attributes:
       label: Description
-      description: Describe the bug clearly and concisely.
-      placeholder: "Example: Deleting a task removes the wrong item."
+      description: Briefly describe the feature you would like to add.
+      placeholder: "Example: Add category filtering for tasks."
     validations:
       required: true
 
   - type: textarea
-    id: reproduction-steps
+    id: tasks
     attributes:
-      label: Steps to Reproduce
-      description: What steps should we follow to reproduce the bug?
+      label: Tasks
+      description: List the steps required to implement this feature.
       placeholder: |
-        1. Add a new task
-        2. Click the delete button
-        3. Observe that the wrong task is deleted
+        - Create a dropdown menu
+        - Handle category selection
+        - Filter tasks by selected category
     validations:
       required: true
 
   - type: dropdown
-    id: severity
+    id: priority
     attributes:
-      label: Severity
-      description: How severe is this bug?
+      label: Priority
+      description: How important is this feature?
       options:
         - Low
         - Medium
-        - Critical
+        - High
     validations:
       required: false
 
   - type: textarea
-    id: screenshots
+    id: additional-notes
     attributes:
-      label: Screenshots
-      description: Add screenshots if applicable.
-      placeholder: "Leave empty if not applicable."
+      label: Additional Notes
+      description: Add any extra information if necessary.
+      placeholder: "Example: Make sure the dropdown is mobile-friendly."
     validations:
       required: false
