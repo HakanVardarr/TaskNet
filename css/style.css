@@ -11,7 +11,7 @@ body {
     background-color: #f4f4f4;
     display: flex;
     flex-direction: column;
-    transition: background-color 0.3s ease, color 0.3s ease;
+ 
 }
 
 header {
@@ -19,7 +19,7 @@ header {
     color: white;
     text-align: center;
     padding: 15px 0;
-    transition: background-color 0.3s ease;
+   
 }
 
 header h1 {
@@ -202,7 +202,6 @@ input[type="checkbox"].dark-mode {
     position: absolute;
     top: 20px;
     right: 20px;
-    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 body.dark-mode .dark-mode-toggle {
