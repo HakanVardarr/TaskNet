@@ -68,13 +68,23 @@ main {
     margin-bottom: 10px;
     border-radius: 5px;
     display: flex;
-    justify-content: space-between; /* Checkbox sağa yerleştirilecek */
-    align-items: center;
+    align-items: center; /* Bu satırda dikey hizalamayı yaptık */
+}
+
+.task-list li span {
+    flex-grow: 1; /* Bu, görev açıklamasının sola dayalı kalmasını sağlıyor */
+}
+
+/* Completed Task Style */
+.task-list li.completed {
+    text-decoration: line-through;
+    background-color: #e0ffe0;
 }
 
 /* Checkbox Style */
 input[type="checkbox"] {
-    margin-left: 10px; /* Checkbox'ın sol tarafında boşluk bırakılacak */
+    margin-left: 10px; /* Checkbox ile metin arasında boşluk bırakılacak */
+    order: 2; /* Bu, checkbox'ı sağa yerleştirir */
 }
 
 /* Responsive Design */
