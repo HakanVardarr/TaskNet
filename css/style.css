@@ -67,6 +67,14 @@ main {
     border: 1px solid #ddd;
     margin-bottom: 10px;
     border-radius: 5px;
+    display: flex;
+    justify-content: space-between; /* Checkbox sağa yerleştirilecek */
+    align-items: center;
+}
+
+/* Checkbox Style */
+input[type="checkbox"] {
+    margin-left: 10px; /* Checkbox'ın sol tarafında boşluk bırakılacak */
 }
 
 /* Responsive Design */
@@ -81,5 +89,10 @@ main {
 
     .task-input-form button {
         font-size: 0.9rem;
+    }
+
+    .task-list li {
+        flex-direction: column; /* Daha küçük ekranlarda, görevleri alt alta yerleştirecek */
+        align-items: flex-start; /* Checkbox ile görev açıklamasını üst üste hizalayacak */
     }
 }

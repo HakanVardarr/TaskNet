@@ -32,8 +32,8 @@ function addTask() {
         taskText.textContent = taskDescription;
 
         // Append checkbox and task description to the list item
-        listItem.appendChild(checkbox);
         listItem.appendChild(taskText);
+        listItem.appendChild(checkbox);
 
         // Add the list item to the task list
         taskList.appendChild(listItem);
