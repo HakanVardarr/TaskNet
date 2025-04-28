@@ -77,9 +77,13 @@ main {
 
 /* Completed Task Style */
 .task-list li.completed {
-    text-decoration: line-through;
     background-color: #e0ffe0;
 }
+
+.taks-list li.completed span {
+    text-decoration: line-through;
+}
+
 
 /* Delete Button Style */
 .task-list li .delete-button {
