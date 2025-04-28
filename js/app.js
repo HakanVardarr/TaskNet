@@ -114,6 +114,7 @@ function loadTasks() {
         deleteButton.textContent = "Delete";
         deleteButton.addEventListener("click", () => {
             taskList.removeChild(listItem);
+            saveTasks();
         });
         deleteButton.classList.add("delete-button");
 
