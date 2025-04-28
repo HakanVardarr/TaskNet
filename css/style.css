@@ -24,6 +24,7 @@ main {
     padding: 20px;
 }
 
+/* Task Input Form */
 .task-input-form {
     margin-bottom: 20px;
     display: flex;
@@ -31,30 +32,32 @@ main {
     align-items: center;
 }
 
-.task-input-form input {
+.task-input-form input,
+.task-input-form button {
     padding: 10px;
     font-size: 1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.task-input-form input {
     width: 300px;
     margin-right: 10px;
     border: 1px solid #ccc;
-    border-radius: 5px;
 }
 
 .task-input-form button {
-    padding: 10px 20px;
-    font-size: 1rem;
     background-color: #4CAF50;
     color: white;
     border: none;
-    border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
 }
 
 .task-input-form button:hover {
     background-color: #45a049;
 }
 
+/* Task List Styles */
 .task-list {
     margin-top: 20px;
 }
@@ -123,7 +126,7 @@ input[type="checkbox"] {
     order: 2;
 }
 
-/* Clear Completed Button Style */
+/* Clear Completed Button */
 #clearCompletedButton {
     background-color: #ff9800;
     color: white;
@@ -196,7 +199,6 @@ input[type="checkbox"].dark-mode {
 
 body.dark-mode .dark-mode-toggle {
     color: #fff;
-
 }
 
 body:not(.dark-mode) .dark-mode-toggle {

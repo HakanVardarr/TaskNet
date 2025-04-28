@@ -3,24 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TaskNet</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="TaskNet - A simple task management app to keep track of your tasks with dark mode support.">
+    <meta name="author" content="Hakan Vardar">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="TaskNet - Task Management App">
+    <meta property="og:description" content="A simple task management app to keep track of your tasks with dark mode support.">
+    <meta name="theme-color" content="#4CAF50">
+    <title>TaskNet - Task Management</title>
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
     <header>
         <h1>TaskNet</h1>
-        <button id="darkModeToggle" class="dark-mode-toggle">
-            🌙  <!-- Initial Icon for Light Mode -->
+        <button id="darkModeToggle" class="dark-mode-toggle" aria-label="Toggle Dark Mode">
+            🌙 <!-- Icon for Light Mode -->
         </button>
     </header>
     <main>
         <section class="task-input-form">
-            <input type="text" id="taskInput" placeholder="Enter task description">
-            <button id="addTaskButton">Add Task</button>
+            <input type="text" id="taskInput" placeholder="Enter task description" aria-label="Task description input">
+            <button id="addTaskButton" aria-label="Add Task">Add Task</button>
         </section>
         <section class="task-list">
-            <button id="clearCompletedButton">Clear Completed</button>
-            <ul id="taskList">
+            <button id="clearCompletedButton" aria-label="Clear completed tasks">Clear Completed</button>
+            <ul id="taskList" aria-live="polite">
                 <!-- Task items will appear here -->
             </ul>
         </section>
