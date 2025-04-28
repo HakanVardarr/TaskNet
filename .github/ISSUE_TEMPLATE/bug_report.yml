@@ -42,22 +42,6 @@ body:
     validations:
       required: true
 
-  - type: dropdown
-    id: environment
-    attributes:
-      label: Environment
-      description: Select the environment where you encountered the bug.
-      options:
-        - Browser: Chrome
-        - Browser: Firefox
-        - Browser: Safari
-        - OS: macOS
-        - OS: Windows
-        - OS: Linux
-        - Other
-    validations:
-      required: true
-
   - type: textarea
     id: additional-notes
     attributes:
