@@ -179,8 +179,29 @@ input[type="checkbox"].dark-mode {
     background-color: #666;
 }
 
-/* Dark Mode Buttons */
+/* Dark Mode Toggle Button */
+.dark-mode-toggle {
+    background-color: transparent;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: #fff;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
 
+body.dark-mode .dark-mode-toggle {
+    color: #fff;
+
+}
+
+body:not(.dark-mode) .dark-mode-toggle {
+    color: #000; 
+}
 
 /* Responsive Design */
 @media (max-width: 768px) {
@@ -199,5 +220,10 @@ input[type="checkbox"].dark-mode {
     .task-list li {
         flex-direction: column;
         align-items: flex-start;
+    }
+
+    .dark-mode-toggle {
+        font-size: 1.3rem;
+        padding: 8px 16px;
     }
 }

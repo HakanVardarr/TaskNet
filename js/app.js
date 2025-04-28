@@ -99,6 +99,17 @@ function loadTasks() {
 }
 
 function toggleDarkMode() {
+    const isDarkMode = localStorage.getItem("darkMode") === "true";
+    const button = document.getElementById("darkModeToggle");
+    if (isDarkMode) {
+        button.innerHTML = '🌙';
+    } else {
+        button.innerHTML =  '🌞' ;  
+    }
+
+    
+  
+
     document.body.classList.toggle("dark-mode");
     document.querySelector("header").classList.toggle("dark-mode");
     
@@ -117,3 +128,17 @@ function applyDarkModeFromStorage() {
         taskItems.forEach(item => item.classList.add("dark-mode"));
     }
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+    // Get the dark mode state from localStorage
+    const isDarkMode = localStorage.getItem("darkMode") === "true";
+    
+    // Apply dark mode if the stored preference is true
+    if (isDarkMode) {
+        document.body.classList.add("dark-mode");
+    }
+
+    // Update the button icon based on dark mode state
+    const button = document.getElementById("darkModeToggle");
+    button.innerHTML = isDarkMode ? '🌞' : '🌙';  // Toggle between moon and sun icon
+});
