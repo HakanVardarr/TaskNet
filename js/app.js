@@ -7,13 +7,21 @@ document.getElementById("taskInput").addEventListener("keydown", function(event)
 
 document.getElementById("clearCompletedButton").addEventListener("click", () => {
     const taskList = document.getElementById("taskList").getElementsByTagName("li");
+    let tasksRemoved = false;
+
+    // Loop through the task list and remove completed tasks
     for (let i = 0; i < taskList.length; i++) {
         const listItem = taskList[i];
         if (listItem.classList.contains("completed")) {
             document.getElementById("taskList").removeChild(listItem);
+            tasksRemoved = true;
         }
     }
-    saveTasks(); // After clearing completed tasks, save to LocalStorage
+
+    // If any tasks were removed, update LocalStorage
+    if (tasksRemoved) {
+        saveTasks(); // After clearing completed tasks, save to LocalStorage
+    }
 });
 
 function addTask() {
@@ -23,6 +31,9 @@ function addTask() {
     if (taskDescription !== "") {
         const taskList = document.getElementById("taskList");
         const listItem = document.createElement("li");
+        
+        // Create a unique ID for the task
+        const taskId = Date.now();
 
         // Create the checkbox
         const checkbox = document.createElement("input");
@@ -43,10 +54,17 @@ function addTask() {
         const taskText = document.createElement("span");
         taskText.textContent = taskDescription;
 
-        // Create delete button (without functionality yet)
+        // Create delete button with functionality
         const deleteButton = document.createElement("button");
         deleteButton.textContent = "Delete";
         deleteButton.classList.add("delete-button");
+
+        // Add event listener to delete task
+        deleteButton.addEventListener("click", function() {
+            taskList.removeChild(listItem);
+            removeTaskFromStorage(taskId); // Remove the task from LocalStorage
+            saveTasks(); // Save the updated list
+        });
 
         // Append checkbox, task description, and delete button to the list item
         listItem.appendChild(taskText);
@@ -69,10 +87,11 @@ function addTask() {
 function saveTasks() {
     const taskList = document.getElementById("taskList").getElementsByTagName("li");
     const tasks = [];
-    
+
     for (let i = 0; i < taskList.length; i++) {
         const listItem = taskList[i];
         const task = {
+            id: listItem.id, // Unique ID for each task
             description: listItem.querySelector("span").textContent,
             completed: listItem.classList.contains("completed")
         };
@@ -88,6 +107,7 @@ function loadTasks() {
 
     tasks.forEach(task => {
         const listItem = document.createElement("li");
+        listItem.id = task.id; // Set the unique ID
 
         // Create the checkbox
         const checkbox = document.createElement("input");
@@ -109,14 +129,17 @@ function loadTasks() {
         const taskText = document.createElement("span");
         taskText.textContent = task.description;
 
-        // Create delete button (without functionality yet)
+        // Create delete button with functionality
         const deleteButton = document.createElement("button");
         deleteButton.textContent = "Delete";
+        deleteButton.classList.add("delete-button");
+
+        // Add event listener to delete task
         deleteButton.addEventListener("click", () => {
             taskList.removeChild(listItem);
-            saveTasks();
+            removeTaskFromStorage(task.id); // Remove task from LocalStorage
+            saveTasks(); // Save the updated task list
         });
-        deleteButton.classList.add("delete-button");
 
         // Append checkbox, task description, and delete button to the list item
         listItem.appendChild(taskText);
@@ -131,6 +154,12 @@ function loadTasks() {
         // Add the list item to the task list
         taskList.appendChild(listItem);
     });
+}
+
+function removeTaskFromStorage(taskId) {
+    let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+    tasks = tasks.filter(task => task.id !== taskId); // Remove task with the given ID
+    localStorage.setItem("tasks", JSON.stringify(tasks)); // Update LocalStorage
 }
 
 // Load tasks when the page is loaded
